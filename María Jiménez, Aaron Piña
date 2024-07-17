@@ -1,0 +1,61 @@
+#include <stdio.h>
+
+void calcularPromedio() {
+    int cantidadNumeros;
+    printf("Ingrese la cantidad de números a promediar: ");
+    scanf("%d", &cantidadNumeros);
+
+    double suma = 0.0;
+    for (int i = 0; i < cantidadNumeros; i++) {
+        double numero;
+        printf("Ingrese el número %d: ", i + 1);
+        scanf("%lf", &numero);
+        suma += numero;
+    }
+
+    double promedio = suma / cantidadNumeros;
+    printf("El promedio general es: %f\n", promedio);
+}
+
+void calcularValorAbsoluto() {
+    double numero;
+    printf("Ingrese un número: ");
+    scanf("%lf", &numero);
+
+    double valorAbsoluto = (numero < 0)? -numero : numero;
+    printf("El valor absoluto es: %f\n", valorAbsoluto);
+}
+
+int main() {
+    int opcion;
+    do {
+        printf("Menú:\n");
+        printf("1. Calcular promedio general\n");
+        printf("2. Calcular valor absoluto\n");
+        printf("3. Salir\n");
+        printf("Ingrese su opción: ");
+        scanf("%d", &opcion);
+
+        switch (opcion) {
+            case 1:
+                calcularPromedio();
+                break;
+            case 2:
+                calcularValorAbsoluto();
+                break;
+            case 3:
+                printf("Adiós!\n");
+                break;
+            default:
+                printf("Opción inválida\n");
+                break;
+        }
+
+        printf("\nPresione Enter para continuar...\n");
+        getchar(); // espera a que el usuario presione Enter
+        printf("\n"); //
+
+    } while (opcion!= 3);
+
+    return 0;
+}
